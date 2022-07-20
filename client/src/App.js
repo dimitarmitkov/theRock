@@ -8,6 +8,7 @@ import "primeicons/primeicons.css";                                //icons
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarData from './components/navbar/Navbar';
 import { Container, Row, Col } from 'react-bootstrap';
+import SingleThreadForList from "./components/threads/SingleThreadForList";
 // import Hello from './components/test_components/HelloWorld';
 // import SidebarFive from './components/sidebar/SidebarFive';
 // import LoginGroup from './components/login/LoginForm';
@@ -35,10 +36,13 @@ function App() {
           <Row>
             <Col sm={2}>
               {/*<SidebarFive />*/}
+
+              {/*<SingleThreadForList />*/}
             </Col>
-            <Col sm={10}>
+            <Col sm={8}>
               <Routes>
 
+                < Route path="/" element={<SingleThreadForList />} />
                 {/*< Route path="/helloMitko" element={<Hello />} />*/}
                 {/*< Route path="/users" element={<PaginatedUsers />} />*/}
                 {/*< Route path="/tasks" element={<PaginatedTasks />} />*/}
@@ -52,6 +56,12 @@ function App() {
                 {/*< Route path="/websocket" element={<WebsocketData />} />*/}
 
               </Routes>
+            </Col>
+
+            <Col sm={2}>
+              {/*<SidebarFive />*/}
+
+              {/*<SingleThreadForList />*/}
             </Col>
           </Row>
         </Router>

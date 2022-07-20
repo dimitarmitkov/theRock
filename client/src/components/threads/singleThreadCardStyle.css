@@ -1,0 +1,40 @@
+#card{
+    border-color:gray;
+    border-style: solid;
+    border-radius: 0.5rem;
+    border-width: thin;
+}
+
+
+#cardNumberVotes{
+    padding-left: 1.2rem;
+
+}
+
+#cardNumberVotesField{
+    background-color:lightgrey;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+#icons, #posted{
+    font-size:smaller;
+    color:gray;
+}
+
+#icons > div > i.pi{
+    font-size:0.7rem
+}
+
+#icons > div > span, #title{
+    font-weight: bolder;
+}
+
+#title{
+    color: rgb(137,137,137);
+}
+
+#cardNumberVotesField > div:nth-child(1) > i{
+    color: orange;
+
+}

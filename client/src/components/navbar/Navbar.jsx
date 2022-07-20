@@ -71,6 +71,7 @@ const NavbarData = ()=>{
                             </Col>
                             <Col sm={3}>
                                 <i className="pi pi-at"></i><i className="pi pi-compass"></i><i className="pi pi-camera"></i>
+                                <i className="pi pi-at"></i><i className="pi pi-compass"></i><i className="pi pi-camera"></i>
                             </Col>
 
                             <Col sm={3}>

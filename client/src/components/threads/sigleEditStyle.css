@@ -8,10 +8,10 @@
 
 #cardNumberVotes{
     padding-left: 1.2rem;
+
 }
 
-.side-votes-bar{
-    background-color:lightgrey;
+#cardNumberVotesField{
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
 }
@@ -30,9 +30,18 @@
 }
 
 #title{
-    color: rgb(137,137,137);
+    color: black;
 }
 
 #cardNumberVotesField > div:nth-child(1) > i{
     color: orange;
+}
+
+.edit-field{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.float-end{
+    margin-top: 1rem;
 }

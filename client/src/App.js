@@ -9,6 +9,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarData from './components/navbar/Navbar';
 import { Container, Row, Col } from 'react-bootstrap';
 import SingleThreadForList from "./components/threads/SingleThreadForList";
+import {valuesLinks} from "./enumerators/links";
+import EditorDemo from "./components/threads/EditThread";
+import SingleThreadForEdit from "./components/threads/SingleThreadForEdit";
 // import Hello from './components/test_components/HelloWorld';
 // import SidebarFive from './components/sidebar/SidebarFive';
 // import LoginGroup from './components/login/LoginForm';
@@ -37,13 +40,12 @@ function App() {
             <Col sm={2}>
               {/*<SidebarFive />*/}
 
-              {/*<SingleThreadForList />*/}
             </Col>
             <Col sm={8}>
               <Routes>
 
                 < Route path="/" element={<SingleThreadForList />} />
-                {/*< Route path="/helloMitko" element={<Hello />} />*/}
+                < Route path={valuesLinks.EditTask} element={<SingleThreadForEdit />} />
                 {/*< Route path="/users" element={<PaginatedUsers />} />*/}
                 {/*< Route path="/tasks" element={<PaginatedTasks />} />*/}
                 {/*< Route path="/login" element={<LoginGroup />} />*/}

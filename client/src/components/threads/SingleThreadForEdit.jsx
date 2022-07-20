@@ -1,7 +1,8 @@
 import {Container, Row, Col} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
-import "./singleThreadCardStyle.css";
+import "./sigleEditStyle.css";
 import {valuesLinks} from "../../enumerators/links";
+import EditThread from "./EditThread";
 
 
 const SingleThreadForList = () => {
@@ -17,6 +18,11 @@ const SingleThreadForList = () => {
     return (
         <Container id="card">
             <Row>
+                <Col id="cardNumberVotesField" md={"auto"}>
+                    <Row><i className="pi pi-caret-up"></i></Row>
+                    <Row id="cardNumberVotes">0</Row>
+                    <Row><i className="pi pi-caret-down"></i></Row>
+                </Col>
                 <Col xs lg="11">
 
                     <Row id="posted">
@@ -46,13 +52,13 @@ const SingleThreadForList = () => {
                             <i className="pi pi-save"></i><span>Save</span> &nbsp;&nbsp;
                         </div>
                     </Row>
+
+                    <Row className="edit-field">
+                        <EditThread />
+                    </Row>
                 </Col>
             </Row>
-            <Col id="cardNumberVotesField" md={"auto"} className="side-votes-bar">
-                <Row><i className="pi pi-caret-up"></i></Row>
-                <Row id="cardNumberVotes">0</Row>
-                <Row><i className="pi pi-caret-down"></i></Row>
-            </Col>
+
         </Container>
     )
 }

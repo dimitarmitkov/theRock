@@ -1,0 +1,12 @@
+.dropdown-demo .p-dropdown {
+    width: 14rem;
+}
+
+.dropdown-demo .country-item-value img.flag {
+    width: 17px;
+}
+
+#dd1{
+    width:100%;
+    height: 100%;
+}

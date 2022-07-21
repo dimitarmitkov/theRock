@@ -5,22 +5,11 @@ import { Dropdown } from "primereact/dropdown";
 import { AutoComplete } from 'primereact/autocomplete';
 import countries from "../../enumerators/navbar/countriesList";
 import "./dropdown.css";
+import axios from "axios";
 
 const NavbarData = ()=>{
 
     const [selectedCountry, setSelectedCountry] = useState(null);
-    // const countries = [
-    //     { name: 'Australia', code: 'AU' },
-    //     { name: 'Brazil', code: 'BR' },
-    //     { name: 'China', code: 'CN' },
-    //     { name: 'Egypt', code: 'EG' },
-    //     { name: 'France', code: 'FR' },
-    //     { name: 'Germany', code: 'DE' },
-    //     { name: 'India', code: 'IN' },
-    //     { name: 'Japan', code: 'JP' },
-    //     { name: 'Spain', code: 'ES' },
-    //     { name: 'United States', code: 'US' }
-    // ];
 
     const onCountryChange = (e) => {
         setSelectedCountry(e.value);
@@ -48,7 +37,11 @@ const NavbarData = ()=>{
 
 
 
-    const clickHandler = (data) => {
+    const clickHandler = async (data) => {
+        const result = await axios.get("http://localhost:62000/users").catch(err=>console.log(err));
+
+        console.log(result);
+
     }
 
     return (

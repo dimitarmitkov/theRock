@@ -5,10 +5,28 @@ import {valuesLinks} from "../../enumerators/links";
 import EditThread from "./EditThread";
 import SelectBy from "../selectBy/SelectBy";
 import {Button} from "primereact/button";
+import Comment from "../comment/Comment";
+import axios from "axios";
+import {useState} from "react";
+
 
 
 const SingleThreadForList = () => {
     const navigate = useNavigate();
+
+    const [threadData, setThreadData] = useState([]);
+
+    const getData = async ()=>{
+
+        const result = await axios.get("http://localhost:62000/threads");
+
+        setThreadData(result);
+
+        // console.log(result)
+
+    }
+
+    getData();
 
    const clickHandler = (e)=>{
        const data = e.target.innerText ? e.target.innerText : e.target.className;
@@ -61,6 +79,15 @@ const SingleThreadForList = () => {
 
                     <Row>
                         <SelectBy />
+                    </Row>
+                    <Row className={"comment-single-below"}>
+                        <Comment />
+                    </Row>
+                    <Row className={"comment-single-below"}>
+                        <Comment />
+                    </Row>
+                    <Row className={"comment-single-below"}>
+                        <Comment />
                     </Row>
                 </Col>
             </Row>

@@ -1,4 +1,4 @@
-.card-container-thread{
+.card-container-thread, .comment-single-below{
     border-color:gray;
     border-style: solid;
     border-radius: 0.5rem;

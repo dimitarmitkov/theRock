@@ -3,23 +3,24 @@ import { Container, Navbar, Nav, Row, Col } from "react-bootstrap";
 import { Button } from 'primereact/button';
 import { Dropdown } from "primereact/dropdown";
 import { AutoComplete } from 'primereact/autocomplete';
+import countries from "../../enumerators/navbar/countriesList";
 import "./dropdown.css";
 
 const NavbarData = ()=>{
 
     const [selectedCountry, setSelectedCountry] = useState(null);
-    const countries = [
-        { name: 'Australia', code: 'AU' },
-        { name: 'Brazil', code: 'BR' },
-        { name: 'China', code: 'CN' },
-        { name: 'Egypt', code: 'EG' },
-        { name: 'France', code: 'FR' },
-        { name: 'Germany', code: 'DE' },
-        { name: 'India', code: 'IN' },
-        { name: 'Japan', code: 'JP' },
-        { name: 'Spain', code: 'ES' },
-        { name: 'United States', code: 'US' }
-    ];
+    // const countries = [
+    //     { name: 'Australia', code: 'AU' },
+    //     { name: 'Brazil', code: 'BR' },
+    //     { name: 'China', code: 'CN' },
+    //     { name: 'Egypt', code: 'EG' },
+    //     { name: 'France', code: 'FR' },
+    //     { name: 'Germany', code: 'DE' },
+    //     { name: 'India', code: 'IN' },
+    //     { name: 'Japan', code: 'JP' },
+    //     { name: 'Spain', code: 'ES' },
+    //     { name: 'United States', code: 'US' }
+    // ];
 
     const onCountryChange = (e) => {
         setSelectedCountry(e.value);

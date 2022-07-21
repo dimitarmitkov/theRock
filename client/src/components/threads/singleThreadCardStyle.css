@@ -1,10 +1,26 @@
-#card{
+.card-container-thread{
     border-color:gray;
     border-style: solid;
     border-radius: 0.5rem;
     border-width: thin;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
+.card-container-thread-icons{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.card-container-thread-posted{
+    margin-bottom: 0.75rem;
+}
+
+.card-container-thread-title-grey{
+    margin-bottom: 0.75rem;
+    color: rgb(137,137,137);
+    font-size:large;
+    font-weight: bolder;
+}
 
 #cardNumberVotes{
     padding-left: 1.2rem;
@@ -25,12 +41,8 @@
     font-size:0.7rem
 }
 
-#icons > div > span, #title{
+#icons > div > span{
     font-weight: bolder;
-}
-
-#title{
-    color: rgb(137,137,137);
 }
 
 #cardNumberVotesField > div:nth-child(1) > i{

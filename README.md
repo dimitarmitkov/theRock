@@ -7,7 +7,7 @@ node version 16.14.0
 2. `npm install`
 3. Create your own MySQL database and get its credentials
 4. create `server/config` directory 
-5. add file `config.json` in server/config
+5. add file `config.json` in _server/config_
 7. config.json should contain:
 ```
 {
@@ -53,21 +53,21 @@ module.exports  = {
 14. run application by typing `npx nodemon index.js` or `npm run start`
 
 
-##Client setup
+**Client setup**
 1. go to `client` directory
 2. run `npm install`
 3. run `npm run start`
 
-#App functionality information
+**App functionality information**
 1. Add thread - click on "Create Post" (located on top row in main page), the type your thread text into the field
 2. View comments - click on "Comments" text or its icon
 3. All comments of this thread are below add-comment-field
 4. Add comment - type yuor comment into the field
 5. Change userName - click on avatar icon on navBar (this functionality is not finished yet)
 
-#Additional data
-UI - React
-Back-End - JS + Node.js
-Server - Koa
-Database - MySQL
-Responsive UI - true 
+**Additional data**
+- UI - React
+- Back-End - JS + Node.js
+- Server - Koa
+- Database - MySQL
+- Responsive UI - true 

@@ -35,3 +35,5 @@
 8. go back to server directory
 9. run `npx sequelize db:migrate`
 10. run `npx sequelize db:seed:all`
+11. go to directory 
+12. run application by typing `npx nodemon index.js` or `npm run start`

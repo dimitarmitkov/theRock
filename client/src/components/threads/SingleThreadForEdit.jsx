@@ -1,23 +1,20 @@
 import {Container, Row, Col} from "react-bootstrap";
 import {useNavigate, useParams} from "react-router-dom";
 import "./sigleEditStyle.css";
-import {valuesLinks} from "../../enumerators/links";
 import EditThread from "./EditThread";
 import SelectBy from "../selectBy/SelectBy";
 import {Button} from "primereact/button";
-import Comment from "../comment/Comment";
 import axios from "axios";
 import {useState, useEffect} from "react";
+import avatar1 from "../../images/avatar2.png";
 
 
 const SingleThreadForList = () => {
-    // const navigate = useNavigate();
     const {id} = useParams();
-
-    console.log(id.replace(":", ""));
 
     const [threadData, setThreadData] = useState({});
     const [commentsData, setCommentsData] = useState({});
+    const [element, setElement] = useState([]);
 
     const getData = async () => {
 
@@ -32,18 +29,35 @@ const SingleThreadForList = () => {
                 setCommentsData(response.data);
             })
             .catch(error => console.log(error));
-    }
+    };
+
 
     useEffect(() => {
         getData();
-    }, []);
+    }, [id]);
+
+    useEffect(() => {
+        if(commentsData.length>0){
+            setElement(commentsData.map((comment, i) => {
+                return (
+                    <Row key={i + "data"} className={"comment-single-below"}>
+                        <Row>
+                            <Col md={2} >
+                                <img className={"avatar-images"} src={avatar1} alt="avatar"/>
+                            </Col>
+                            <Col md={10}>
+                                {comment.threadComment}
+                            </Col>
+                        </Row>
+                    </Row>
+                )
+            }));
+        }
+    }, [commentsData.length>0]);
+
 
     const clickHandler = (e) => {
-        //  const data = e.target.innerText ? e.target.innerText : e.target.className;
-        //
-        // if(data.toLowerCase().indexOf("comments") !== -1){
-        //     navigate(valuesLinks.EditTask);
-        // }
+
     }
     return (
         <Container id="card" className="card-container-thread">
@@ -89,18 +103,11 @@ const SingleThreadForList = () => {
                     <Row>
                         <SelectBy/>
                     </Row>
-                    <Row className={"comment-single-below"}>
-                        <Comment/>
-                    </Row>
-                    <Row className={"comment-single-below"}>
-                        <Comment/>
-                    </Row>
-                    <Row className={"comment-single-below"}>
-                        <Comment/>
-                    </Row>
+                    <div>
+                        {element}
+                    </div>
                 </Col>
             </Row>
-
         </Container>
     )
 }

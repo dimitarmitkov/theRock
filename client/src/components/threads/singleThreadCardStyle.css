@@ -64,3 +64,7 @@
     height:50%;
     margin-top: 0.1rem;
 }
+
+.sidebar-pointer{
+    cursor: pointer;
+}

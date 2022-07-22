@@ -61,7 +61,7 @@ const element = threadData.map((thread,i)=>{
                     </Row>
                     <Row id="icons" className={"card-container-thread-icons"}>
                         <div onClick={(e)=>clickHandler(e,thread.id)}>
-                            <i className="pi pi-comments"></i><span>Comments</span> &nbsp;&nbsp;
+                            <i className="pi pi-comments sidebar-pointer"></i><span className={"sidebar-pointer"}>Comments</span> &nbsp;&nbsp;
                             <i className="pi pi-money-bill"></i><span>Awards</span> &nbsp;&nbsp;
                             <i className="pi pi-share-alt"></i><span>Share</span> &nbsp;&nbsp;
                             <i className="pi pi-save"></i><span>Save</span> &nbsp;&nbsp;

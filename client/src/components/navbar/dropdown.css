@@ -14,3 +14,11 @@
 .pi{
     font-size: 1.5rem;
 }
+
+.button-avatar-navbar{
+    text-align: end;
+}
+
+.user-name-navbar, .icons-navbar{
+    margin-top: 0.5rem;
+}

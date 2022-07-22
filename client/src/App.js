@@ -12,6 +12,7 @@ import SingleThreadForList from "./components/threads/SingleThreadForList";
 import {valuesLinks} from "./enumerators/links";
 import SingleThreadForEdit from "./components/threads/SingleThreadForEdit";
 import StartThread from "./components/threads/StartThread";
+import FormikFormDemo from "./components/user/ChangeUsername";
 
 function App() {
     return (
@@ -31,6 +32,7 @@ function App() {
                             < Route path="/" element={<SingleThreadForList/>}/>
                             < Route path={valuesLinks.EditTask + ":id"} element={<SingleThreadForEdit/>}/>
                             < Route path={valuesLinks.StartTask} element={<StartThread/>}/>
+                            < Route path={valuesLinks.ChangeUser} element={<FormikFormDemo/>}/>
 
                         </Routes>
                     </Col>

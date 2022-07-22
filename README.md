@@ -2,7 +2,7 @@
 
 node version 16.14.0
 
-##Server setup
+**Server setup**
 1. Go to Server directory
 2. `npm install`
 3. Create your own MySQL database and get its credentials

@@ -16,7 +16,6 @@ const SingleThreadForList = () => {
 
         axios.get("http://localhost:62000/threads")
             .then(response=>{
-                console.log(response.data);
                 setThreadData(response.data);
             })
             .catch(error=>console.log(error));
@@ -28,8 +27,6 @@ const SingleThreadForList = () => {
 
    const clickHandler = (e, id)=>{
        const data = e.target.innerText ? e.target.innerText : e.target.className;
-
-       console.log(id)
 
       if(data.toLowerCase().indexOf("comments") !== -1){
           navigate(valuesLinks.EditTask+":"+id);

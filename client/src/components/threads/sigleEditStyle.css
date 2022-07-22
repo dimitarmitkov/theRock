@@ -60,3 +60,11 @@
 .float-end{
     margin-top: 1rem;
 }
+
+.avatar-images{
+    width: 4rem;
+    height: 4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+

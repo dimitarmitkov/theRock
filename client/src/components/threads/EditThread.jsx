@@ -1,14 +1,29 @@
 import React, {useState} from "react";
 import {Editor} from 'primereact/editor';
-import SingleThreadForList from "./SingleThreadForList";
 import {Button} from 'primereact/button';
 import {Container, Row, Col} from "react-bootstrap";
-import {align} from "quill/ui/icons";
+import {valuesLinks} from "../../enumerators/links";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 
-const EditorDemo = () => {
-    const [text1, setText1] = useState('<div>Hello World!</div><div>PrimeReact <b>Editor</b> Rocks</div><div><br></div>');
+const EditorDemo = (params) => {
     const [text2, setText2] = useState('');
+    const navigate = useNavigate();
+
+    const clickHandler = () => {
+
+        axios.post("http://localhost:62000/comment", {
+            threadId: params.params.id,
+            userId: params.params.threadUser,
+            threadComment: text2.replace(/[<,p,\/,>]/gm,""),
+        })
+            .then(response => {
+            })
+            .catch(error => console.log(error));
+
+        navigate("/");
+    }
 
     const renderHeader = () => {
         return (
@@ -32,18 +47,14 @@ const EditorDemo = () => {
 
     return (
         <div>
-            {/*<div className="card">*/}
-                {/*<Editor style={{height: '320px'}} value={text1} onTextChange={(e) => setText1(e.htmlValue)}/>*/}
-            {/*</div>*/}
             <div className="card">
                 <Editor headerTemplate={header} style={{height: '320px'}} value={text2}
                         onTextChange={(e) => setText2(e.htmlValue)}/>
-
             </div>
             <Row>
                 <Col >
                     <div className="float-end">
-                <Button className="p-button-rounded p-buttÅon-info" label="Comment"/>
+                <Button onClick={() => clickHandler()} className="p-button-rounded p-buttÅon-info" label="Comment"/>
 
                     </div>
 

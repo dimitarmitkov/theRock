@@ -97,7 +97,7 @@ const SingleThreadForList = () => {
                     </Row>
 
                     <Row className="edit-field">
-                        <EditThread/>
+                        <EditThread params={threadData}/>
                     </Row>
 
                     <Row>

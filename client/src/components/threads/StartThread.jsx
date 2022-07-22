@@ -16,7 +16,7 @@ const StartThread = () => {
         axios.post("http://localhost:62000/start",{
             threadName: "bullwinkle2112",
             threadTitle: "Add to DB",
-            threadContent: text2,
+            threadContent: text2.replace(/[<,p,\/,>]/gm,""),
             threadRating: 10,
             threadUser: 3,
             threadPostedAt: new Date(),

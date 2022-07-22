@@ -1,3 +1,4 @@
 export const valuesLinks = {
-    EditTask: "/threads/"
+    EditTask: "/threads/",
+    StartTask:"/start"
 }

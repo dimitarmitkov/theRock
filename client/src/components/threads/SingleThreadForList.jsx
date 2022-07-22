@@ -5,6 +5,7 @@ import "./singleThreadCardStyle.css";
 import {valuesLinks} from "../../enumerators/links";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import CreateThread from "./CreateThread";
 
 const SingleThreadForList = () => {
     const navigate = useNavigate();
@@ -77,6 +78,7 @@ const element = threadData.map((thread,i)=>{
 
     return (
         <>
+            <CreateThread/>
             {element}
         </>
     )

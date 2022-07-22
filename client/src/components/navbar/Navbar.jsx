@@ -60,7 +60,9 @@ const NavbarData = ()=>{
                                 <Dropdown id = "dd1" value={selectedCountry} options={countries} onChange={onCountryChange} optionLabel="name" filter showClear filterBy="name" placeholder="Select a Country" valueTemplate={selectedCountryTemplate} itemTemplate={countryOptionTemplate} />
                             </Col>
                             <Col sm={2}>
-                            <AutoComplete placeholder="search"  />
+                            {/*<AutoComplete placeholder="search"  />*/}
+                                <Dropdown id = "dd1" value={selectedCountry} options={countries} onChange={onCountryChange} optionLabel="name" filter showClear filterBy="name" placeholder="Select a Country" valueTemplate={selectedCountryTemplate} itemTemplate={countryOptionTemplate} />
+
 
                             </Col>
                             <Col sm={3}>

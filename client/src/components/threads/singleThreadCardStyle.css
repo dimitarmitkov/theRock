@@ -48,3 +48,19 @@
 #cardNumberVotesField > div:nth-child(1) > i{
     color: orange;
 }
+.create-post{
+    width: 45rem;
+    height: 3rem;
+    border-color:gray;
+    border-style: solid;
+    border-radius: 0.5rem;
+    border-width: thin;
+    margin-top: 0.5rem;
+    /*margin-bottom: 0.1rem;*/
+}
+
+.avatar-images-start{
+    width:5rem;
+    height:50%;
+    margin-top: 0.1rem;
+}

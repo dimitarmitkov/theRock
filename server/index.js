@@ -7,6 +7,7 @@ const getAllUsers = require("./router/getAllUsers");
 const getAllThreads = require("./router/getAllThreads");
 const getOneThread = require("./router/getOneThread");
 const getAllComments = require("./router/getAllComments");
+const startThread = require ("./router/startThread")
 const parser = require("koa-bodyparser");
 const koaBody = require('koa-body');
 
@@ -35,8 +36,12 @@ router.post('/threads', async (ctx, next) => {
 });
 router.post('/comments', async (ctx, next) => {
     ctx.response.status = 200;
-    console.log("comments body: ", ctx.request.body)
     ctx.body = await getAllComments.getAllComments(ctx, next);
+});
+router.post('/start', async (ctx, next) => {
+    ctx.response.status = 200;
+    // console.log("comments body: ", ctx.request.body)
+    ctx.body = await startThread.createOneThread(ctx, next);
 });
 
 

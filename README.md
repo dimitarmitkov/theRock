@@ -7,7 +7,8 @@
 4. create `server/config` directory 
 5. add file `config.json` in server/config
 7. config.json should contain:
-```{
+```
+{
   "development": {
     "username": "<your username>",
     "password": "<your db password>",
@@ -28,7 +29,8 @@
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
-  }```
+  }
+  ```
   
 8. go back to server directory
 9. run `npx sequelize db:migrate`

@@ -1,5 +1,5 @@
 const {Sequelize, where} = require('sequelize');
-const cs = require("../api/connection/connectionData");
+const cs = require("./connection/connectionData");
 
 
 const sequelize = new Sequelize(cs.database, cs.user, cs.password, {

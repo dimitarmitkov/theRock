@@ -5,7 +5,7 @@ const { Sequelize } = require('sequelize');
 const cs = require("../connection/connectionData");
 const serviceFactory = require("../services/serviceFactory");
 const fs = require('fs');
-const models = require("../../models/index")
+const models = require("../../../models")
 // const getFileName = require("../functions/getFileName.js");
 
 const sequelize = new Sequelize(cs.database, cs.user, cs.password, {

@@ -1,6 +1,6 @@
 // import models from '../models/index';
 
-const models = require ("../../models/index")
+const models = require ("../../../models")
 
 const statusValues = [
     {key: 'new', value: 'New'},

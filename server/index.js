@@ -1,8 +1,7 @@
 const Koa = require('koa');
-const api = require('./api');
+const api = require('./trashed/api');
 const Router = require('koa-router');
 const cors = require('@koa/cors');
-const app = new Koa();
 const getAllUsers = require("./router/getAllUsers");
 const getAllThreads = require("./router/getAllThreads");
 const getOneThread = require("./router/getOneThread");
@@ -10,8 +9,8 @@ const getAllComments = require("./router/getAllComments");
 const startThread = require ("./router/startThread");
 const addComment = require ("./router/addComment");
 const parser = require("koa-bodyparser");
-const koaBody = require('koa-body');
 
+const app = new Koa();
 const router = new Router();
 
 app.use(cors());

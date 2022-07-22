@@ -45,7 +45,7 @@ function App() {
               <Routes>
 
                 < Route path="/" element={<SingleThreadForList />} />
-                < Route path={valuesLinks.EditTask} element={<SingleThreadForEdit />} />
+                < Route path={valuesLinks.EditTask+":id"} element={<SingleThreadForEdit />} />
                 {/*< Route path="/users" element={<PaginatedUsers />} />*/}
                 {/*< Route path="/tasks" element={<PaginatedTasks />} />*/}
                 {/*< Route path="/login" element={<LoginGroup />} />*/}

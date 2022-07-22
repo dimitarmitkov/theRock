@@ -5,10 +5,15 @@ const cors = require('@koa/cors');
 const app = new Koa();
 const getAllUsers = require("./router/getAllUsers");
 const getAllThreads = require("./router/getAllThreads");
+const getOneThread = require("./router/getOneThread");
+const getAllComments = require("./router/getAllComments");
+const parser = require("koa-bodyparser");
+const koaBody = require('koa-body');
 
 const router = new Router();
 
 app.use(cors());
+app.use(parser());
 
 router.get('/greetings', (ctx, next) => {
     ctx.body = "Hello, World from Router"
@@ -23,6 +28,15 @@ router.get('/users', async (ctx, next) => {
 router.get('/threads', async (ctx, next) => {
     ctx.response.status = 200;
     ctx.body = await getAllThreads.getAllThreads(ctx, next);
+});
+router.post('/threads', async (ctx, next) => {
+    ctx.response.status = 200;
+    ctx.body = await getOneThread.getOneThread(ctx, next);
+});
+router.post('/comments', async (ctx, next) => {
+    ctx.response.status = 200;
+    console.log("comments body: ", ctx.request.body)
+    ctx.body = await getAllComments.getAllComments(ctx, next);
 });
 
 

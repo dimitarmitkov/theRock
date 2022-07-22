@@ -23,19 +23,21 @@ const SingleThreadForList = () => {
 
     useEffect(()=>{
         getData();
-    },[])
+    },[]);
 
-   const clickHandler = (e)=>{
+   const clickHandler = (e, id)=>{
        const data = e.target.innerText ? e.target.innerText : e.target.className;
 
+       console.log(id)
+
       if(data.toLowerCase().indexOf("comments") !== -1){
-          navigate(valuesLinks.EditTask);
+          navigate(valuesLinks.EditTask+":"+id);
       }
    }
 
-const element = threadData.map(thread=>{
+const element = threadData.map((thread,i)=>{
     return (
-        <Container id="card" className="card-container-thread">
+        <Container key={i} id="card" className="card-container-thread">
             <Row>
                 <Col id="cardNumberVotesField" md={"auto"} className="side-votes-bar">
                     <Row><Button icon="pi pi-caret-up" className="p-button-rounded p-button-secondary p-button-text" aria-label="Bookmark" /></Row>
@@ -60,7 +62,7 @@ const element = threadData.map(thread=>{
 
                     </Row>
                     <Row id="icons" className={"card-container-thread-icons"}>
-                        <div onClick={(e)=>clickHandler(e)}>
+                        <div onClick={(e)=>clickHandler(e,thread.id)}>
                             <i className="pi pi-comments"></i><span>Comments</span> &nbsp;&nbsp;
                             <i className="pi pi-money-bill"></i><span>Awards</span> &nbsp;&nbsp;
                             <i className="pi pi-share-alt"></i><span>Share</span> &nbsp;&nbsp;

@@ -1,3 +1,3 @@
 export const valuesLinks = {
-    EditTask: "/edittask"
+    EditTask: "/threads/"
 }

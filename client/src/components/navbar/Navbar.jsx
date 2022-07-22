@@ -1,17 +1,12 @@
 import React, {useState} from "react";
-import {Container, Navbar, Nav, Row, Col} from "react-bootstrap";
+import {Container, Navbar, Row, Col} from "react-bootstrap";
 import {Button} from 'primereact/button';
 import {Dropdown} from "primereact/dropdown";
-import {AutoComplete} from 'primereact/autocomplete';
 import countries from "../../enumerators/navbar/countriesList";
-import "./dropdown.css";
-import axios from "axios";
+import "./navbar.css";
 import currentUser from "../../enumerators/user/currentUser";
 import {useNavigate} from "react-router-dom";
 import {valuesLinks} from "../../enumerators/links";
-import currentLoggedUser from "../../functions/currentLoggedUser";
-
-
 
 const NavbarData = () => {
 
@@ -24,7 +19,7 @@ const NavbarData = () => {
         setSelectedCountry(e.value);
     };
 
-    const selectedCountryTemplate = (option, props) => {
+    const selectedCountryTemplate = (option) => {
         if (option) {
             return (
                 <div className="country-item country-item-value">
@@ -40,7 +35,7 @@ const NavbarData = () => {
     const countryOptionTemplate = (option) => {
         return (
             <div className="country-item">
-                <img alt={option.name} src="images/flag/flag_placeholder.png"
+                <img alt={option.name} src=""
                      onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'}
                      className={`flag flag-${option.code.toLowerCase()}`}/>
                 <div>{option.name}</div>
@@ -48,19 +43,11 @@ const NavbarData = () => {
         );
     }
 
-
     const clickHandler = async (data) => {
-        // const result = await axios.get("http://localhost:62000/users").catch(err => console.log(err));
-
-        // console.log(result);
-
         navigate(valuesLinks.ChangeUser);
-
-
     }
 
     return (
-
         <Container fluid>
             <Navbar expand="lg" variant="light" bg="light">
                 <Container>

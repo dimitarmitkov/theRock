@@ -1,32 +1,29 @@
 import React, {useState} from "react";
 import {Editor} from 'primereact/editor';
 import {Button} from 'primereact/button';
-import {Container, Row, Col} from "react-bootstrap";
+import {Row, Col} from "react-bootstrap";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
-
-
 const StartThread = () => {
-    const [text1, setText1] = useState('<div>Hello World!</div><div>PrimeReact <b>Editor</b> Rocks</div><div><br></div>');
     const [text2, setText2] = useState('');
     const navigate = useNavigate();
 
     const clickHandler = () => {
-        axios.post("http://localhost:62000/start",{
+        axios.post("http://localhost:62000/start", {
             threadName: "bullwinkle2112",
             threadTitle: "Add to DB",
-            threadContent: text2.replace(/[<,p,\/,>]/gm,""),
+            threadContent: text2.replace(/[<,p,\/,>]/gm, ""),
             threadRating: 10,
             threadUser: 3,
             threadPostedAt: new Date(),
             createdAt: new Date(),
-            updatedAt:new Date(),
+            updatedAt: new Date(),
             deletedAt: null
-        }).then(res=>{
+        }).then(res => {
             navigate("/");
 
-        }).catch(error=>{
+        }).catch(error => {
             console.log(error);
         })
     }
@@ -45,7 +42,6 @@ const StartThread = () => {
                 <button className="ql-list" value="bullet" aria-label="Unordered List"></button>
                 <button className="ql-list ql-active" value="ordered" aria-label="Ordered List"></button>
             </span>
-
         );
     }
 
@@ -56,7 +52,6 @@ const StartThread = () => {
             <div className="card">
                 <Editor headerTemplate={header} style={{height: '320px'}} value={text2}
                         onTextChange={(e) => setText2(e.htmlValue)}/>
-
             </div>
             <Row>
                 <Col>

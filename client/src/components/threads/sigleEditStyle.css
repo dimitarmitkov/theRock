@@ -44,10 +44,6 @@
     font-weight: bolder;
 }
 
-/*#title{*/
-/*    color: black;*/
-/*}*/
-
 #cardNumberVotesField > div:nth-child(1) > i{
     color: orange;
 }

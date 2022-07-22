@@ -1,5 +1,5 @@
 import {Container, Row, Col} from "react-bootstrap";
-import {useNavigate, useParams} from "react-router-dom";
+import { useParams} from "react-router-dom";
 import "./sigleEditStyle.css";
 import EditThread from "./EditThread";
 import SelectBy from "../selectBy/SelectBy";
@@ -7,7 +7,6 @@ import {Button} from "primereact/button";
 import axios from "axios";
 import {useState, useEffect} from "react";
 import avatar1 from "../../images/avatar2.png";
-
 
 const SingleThreadForList = () => {
     const {id} = useParams();
@@ -31,18 +30,17 @@ const SingleThreadForList = () => {
             .catch(error => console.log(error));
     };
 
-
     useEffect(() => {
         getData();
     }, [id]);
 
     useEffect(() => {
-        if(commentsData.length>0){
+        if (commentsData.length > 0) {
             setElement(commentsData.map((comment, i) => {
                 return (
                     <Row key={i + "data"} className={"comment-single-below"}>
                         <Row>
-                            <Col md={2} >
+                            <Col md={2}>
                                 <img className={"avatar-images"} src={avatar1} alt="avatar"/>
                             </Col>
                             <Col md={10}>
@@ -53,12 +51,8 @@ const SingleThreadForList = () => {
                 )
             }));
         }
-    }, [commentsData.length>0]);
+    }, [commentsData.length > 0]);
 
-
-    const clickHandler = (e) => {
-
-    }
     return (
         <Container id="card" className="card-container-thread">
             <Row>
@@ -88,8 +82,9 @@ const SingleThreadForList = () => {
 
                     </Row>
                     <Row id="icons" className={"card-container-thread-icons"}>
-                        <div onClick={(e) => clickHandler(e)}>
-                            <i className="pi pi-comments sidebar-pointer"></i><span className={"sidebar-pointer"}>Comments</span> &nbsp;&nbsp;
+                        <div >
+                            <i className="pi pi-comments sidebar-pointer"></i><span
+                            className={"sidebar-pointer"}>Comments</span> &nbsp;&nbsp;
                             <i className="pi pi-money-bill"></i><span>Awards</span> &nbsp;&nbsp;
                             <i className="pi pi-share-alt"></i><span>Share</span> &nbsp;&nbsp;
                             <i className="pi pi-save"></i><span>Save</span> &nbsp;&nbsp;

@@ -4,7 +4,6 @@ import "./singleThreadCardStyle.css";
 import {valuesLinks} from "../../enumerators/links";
 import avatar1 from "../../images/avatar2.png";
 
-
 const SingleThreadForList = () => {
     const navigate = useNavigate();
 

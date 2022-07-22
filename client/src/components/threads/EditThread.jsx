@@ -1,11 +1,9 @@
 import React, {useState} from "react";
 import {Editor} from 'primereact/editor';
 import {Button} from 'primereact/button';
-import {Container, Row, Col} from "react-bootstrap";
-import {valuesLinks} from "../../enumerators/links";
+import { Row, Col} from "react-bootstrap";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-
 
 const EditorDemo = (params) => {
     const [text2, setText2] = useState('');
@@ -16,10 +14,9 @@ const EditorDemo = (params) => {
         axios.post("http://localhost:62000/comment", {
             threadId: params.params.id,
             userId: params.params.threadUser,
-            threadComment: text2.replace(/[<,p,\/,>]/gm,""),
+            threadComment: text2.replace(/[<,p,\/,>]/gm, ""),
         })
-            .then(response => {
-            })
+            .then()
             .catch(error => console.log(error));
 
         navigate("/");
@@ -39,7 +36,6 @@ const EditorDemo = (params) => {
                 <button className="ql-list" value="bullet" aria-label="Unordered List"></button>
                 <button className="ql-list ql-active" value="ordered" aria-label="Ordered List"></button>
             </span>
-
         );
     }
 
@@ -52,12 +48,11 @@ const EditorDemo = (params) => {
                         onTextChange={(e) => setText2(e.htmlValue)}/>
             </div>
             <Row>
-                <Col >
+                <Col>
                     <div className="float-end">
-                <Button onClick={() => clickHandler()} className="p-button-rounded p-buttÅon-info" label="Comment"/>
-
+                        <Button onClick={() => clickHandler()} className="p-button-rounded p-buttÅon-info"
+                                label="Comment"/>
                     </div>
-
                 </Col>
             </Row>
         </div>

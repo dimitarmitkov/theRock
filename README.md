@@ -29,5 +29,7 @@
     "host": "127.0.0.1",
     "dialect": "mysql"
   }```
-5. run `npx sequelize db:migrate`
-6. run `npx sequelize db:seed:all`
+  
+8. go back to server directory
+9. run `npx sequelize db:migrate`
+10. run `npx sequelize db:seed:all`

@@ -1,17 +1,16 @@
 import React, {useState} from "react";
 import {Editor} from 'primereact/editor';
-import SingleThreadForList from "./SingleThreadForList";
 import {Button} from 'primereact/button';
 import {Container, Row, Col} from "react-bootstrap";
-import {align} from "quill/ui/icons";
-import {valuesLinks} from "../../enumerators/links";
 import axios from "axios";
-import axiosUrl from "../../enumerators/axios/axiosUrl"
+import {useNavigate} from "react-router-dom";
+
 
 
 const StartThread = () => {
     const [text1, setText1] = useState('<div>Hello World!</div><div>PrimeReact <b>Editor</b> Rocks</div><div><br></div>');
     const [text2, setText2] = useState('');
+    const navigate = useNavigate();
 
     const clickHandler = () => {
         axios.post("http://localhost:62000/start",{
@@ -25,7 +24,8 @@ const StartThread = () => {
             updatedAt:new Date(),
             deletedAt: null
         }).then(res=>{
-            console.log("result: ", res);
+            navigate("/");
+
         }).catch(error=>{
             console.log(error);
         })

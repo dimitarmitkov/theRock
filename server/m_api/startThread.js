@@ -14,8 +14,6 @@ model = sql.sequelize.define('Threads',
 
 async function createOne(req, next) {
 
-    console.log('data body: ', req.request.body)
-
     const {
         threadName,
         threadTitle,
@@ -24,10 +22,6 @@ async function createOne(req, next) {
         threadUser,
         deletedAt
     } = req.request.body;
-
-    console.log(threadName);
-
-
 
      return await model.create({
          threadName: threadName,
@@ -38,7 +32,6 @@ async function createOne(req, next) {
          deletedAt: deletedAt
     })
         .then(result=>{
-            result.save();
         })
         .catch(error=>console.log(error));
 }

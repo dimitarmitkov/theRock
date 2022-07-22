@@ -18,7 +18,6 @@ const SingleThreadForList = () => {
 
         axios.get("http://localhost:62000/threads")
             .then(response => {
-                console.log(response.data);
                 setThreadData(response.data);
             })
             .catch(error => console.log(error));

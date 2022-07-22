@@ -9,8 +9,6 @@ const attributesArray = ['id', 'threadId', 'userId', 'threadComment', 'deletedAt
 
 async function getAll(req, next) {
 
-    console.log()
-
     const {threadId} = req.request.body;
 
     model = sql.sequelize.define('threadComments',

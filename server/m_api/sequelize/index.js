@@ -1,10 +1,14 @@
-const {Sequelize, where} = require('sequelize');
-const cs = require("./connection/connectionData");
+const {Sequelize} = require('sequelize');
+const cs = require("../connection/connectionData");
 
 
 const sequelize = new Sequelize(cs.database, cs.user, cs.password, {
     host: cs.host,
-    dialect: "mysql"
+    dialect: cs.dialect
+}, {
+    dialectOptions: {
+        collate: 'utf8_general_ci'
+    }
 });
 
 try {
@@ -17,4 +21,4 @@ try {
     console.log(error);
 }
 
-module.exports ={sequelize}
+module.exports = {sequelize}

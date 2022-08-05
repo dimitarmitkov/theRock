@@ -1,4 +1,4 @@
-const getUsers = require("../m_api/getAllUsers");
+const getUsers = require("../serviceFactory/getAllUsers");
 
 const getAllUsers = async (ctx, next) => {
 

@@ -1,12 +1,13 @@
-import {Container, Row, Col} from "react-bootstrap";
-import { useParams} from "react-router-dom";
+import {Row, Col} from "react-bootstrap";
+import {useParams} from "react-router-dom";
 import "./sigleEditStyle.css";
-import EditThread from "./EditThread";
-import SelectBy from "../selectBy/SelectBy";
-import {Button} from "primereact/button";
-import axios from "axios";
 import {useState, useEffect} from "react";
 import avatar1 from "../../images/avatar2.png";
+import SingleThreadElement from "./SingleThreadElement";
+import {valuesLinks} from "../../enumerators/links";
+import axiosFunctions from "../../functions/axiosFunctions";
+
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const SingleThreadForList = () => {
     const {id} = useParams();
@@ -17,17 +18,14 @@ const SingleThreadForList = () => {
 
     const getData = async () => {
 
-        axios.post("http://localhost:62000/threads", {id: id.replace(":", "")})
-            .then(response => {
-                setThreadData(response.data);
-            })
-            .catch(error => console.log(error));
+        const axiosUrlThreads = SERVER_URL + valuesLinks.Threads;
+        const axiosUrlComments = SERVER_URL + valuesLinks.Comments;
+        const idData = id.replace(":", "");
+        const queryThreads = {id: idData};
+        const queryComments = {threadId: idData};
 
-        axios.post("http://localhost:62000/comments", {threadId: id.replace(":", "")})
-            .then(response => {
-                setCommentsData(response.data);
-            })
-            .catch(error => console.log(error));
+        axiosFunctions(axiosUrlThreads, queryThreads, "post", setThreadData);
+        axiosFunctions(axiosUrlComments, queryComments, "post", setCommentsData);
     };
 
     useEffect(() => {
@@ -54,56 +52,7 @@ const SingleThreadForList = () => {
     }, [commentsData.length > 0]);
 
     return (
-        <Container id="card" className="card-container-thread">
-            <Row>
-                <Col id="cardNumberVotesField" md={"auto"} className="side-votes-bar">
-                    <Row><Button icon="pi pi-caret-up" className="p-button-rounded p-button-secondary p-button-text"
-                                 aria-label="Bookmark"/></Row>
-                    <Row id="cardNumberVotes">{threadData.threadRating}</Row>
-                    <Row><Button icon="pi pi-caret-down" className="p-button-rounded p-button-secondary p-button-text"
-                                 aria-label="Bookmark"/></Row>
-                </Col>
-                <Col xs lg="11">
-
-                    <Row id="posted" className={"card-container-thread-posted"}>
-                        <div>
-                            Posted by {threadData.threadName} 11 days ago
-                        </div>
-                    </Row>
-                    <Row id="title" className={"card-container-thread-title-black"}>
-                        <div>
-                            {threadData.threadTitle}
-                        </div>
-                    </Row>
-                    <Row id="content" className={"card-container-thread-content"}>
-                        <div>
-                            {threadData.threadContent}
-                        </div>
-
-                    </Row>
-                    <Row id="icons" className={"card-container-thread-icons"}>
-                        <div >
-                            <i className="pi pi-comments sidebar-pointer"></i><span
-                            className={"sidebar-pointer"}>Comments</span> &nbsp;&nbsp;
-                            <i className="pi pi-money-bill"></i><span>Awards</span> &nbsp;&nbsp;
-                            <i className="pi pi-share-alt"></i><span>Share</span> &nbsp;&nbsp;
-                            <i className="pi pi-save"></i><span>Save</span> &nbsp;&nbsp;
-                        </div>
-                    </Row>
-
-                    <Row className="edit-field">
-                        <EditThread params={threadData}/>
-                    </Row>
-
-                    <Row>
-                        <SelectBy/>
-                    </Row>
-                    <div>
-                        {element}
-                    </div>
-                </Col>
-            </Row>
-        </Container>
+        <SingleThreadElement thread={threadData} element={element}/>
     )
 }
 

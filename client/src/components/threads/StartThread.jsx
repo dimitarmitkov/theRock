@@ -4,13 +4,19 @@ import {Button} from 'primereact/button';
 import {Row, Col} from "react-bootstrap";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import {valuesLinks} from "../../enumerators/links";
+import EditHeader from "../edit/EditHeader";
+
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const StartThread = () => {
     const [text2, setText2] = useState('');
     const navigate = useNavigate();
 
     const clickHandler = () => {
-        axios.post("http://localhost:62000/start", {
+
+        const axiosUrl = SERVER_URL + valuesLinks.StartTask;
+        const query = {
             threadName: "bullwinkle2112",
             threadTitle: "Add to DB",
             threadContent: text2.replace(/[<,p,\/,>]/gm, ""),
@@ -20,7 +26,10 @@ const StartThread = () => {
             createdAt: new Date(),
             updatedAt: new Date(),
             deletedAt: null
-        }).then(res => {
+        };
+
+        axios.post(axiosUrl, query)
+            .then(res => {
             navigate("/");
 
         }).catch(error => {
@@ -28,24 +37,7 @@ const StartThread = () => {
         })
     }
 
-    const renderHeader = () => {
-        return (
-            <span className="ql-formats">
-                <button className="ql-bold" aria-label="Bold"></button>
-                <button className="ql-italic" aria-label="Italic"></button>
-                <button className="ql-underline" aria-label="Underline"></button>
-                <button className="ql-link" aria-label="Insert Link"></button>
-                <button className="ql-code-block" aria-label="Insert Code Block"></button>
-                <button className="ql-background ql-picker ql-color-picker ql-expanded"
-                        aria-label="Insert Color"></button>
-                <button className="ql-clean" aria-label="Remove Styles"></button>
-                <button className="ql-list" value="bullet" aria-label="Unordered List"></button>
-                <button className="ql-list ql-active" value="ordered" aria-label="Ordered List"></button>
-            </span>
-        );
-    }
-
-    const header = renderHeader();
+    const header = <EditHeader />
 
     return (
         <div>

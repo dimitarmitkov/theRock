@@ -1,17 +1,6 @@
-const sql = require("./index");
-
-let threadId = '';
-let userId = '';
-let threadComment = '';
-let deletedAt = '';
-
-const model = sql.sequelize.define('threadComments',
-    {threadId, userId, threadComment, deletedAt},
-    {tableName: "ThreadComments"});
+const {model, attributesArray} = require("../models/comments");
 
 async function createComment(req, next) {
-
-    console.log("body", req.request.body)
 
     const {
         threadId,
@@ -26,9 +15,9 @@ async function createComment(req, next) {
         threadComment: threadComment,
         deletedAt: deletedAt
     })
-        .then(result=>{
+        .then(result => {
         })
-        .catch(error=>console.log(error));
+        .catch(error => console.log(error));
 }
 
 module.exports = {

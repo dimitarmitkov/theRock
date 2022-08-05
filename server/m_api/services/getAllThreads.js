@@ -1,4 +1,4 @@
-const getThreads = require("../m_api/getAllThreads");
+const getThreads = require("../serviceFactory/getAllThreads");
 
 const getAllThreads = async (ctx, next) => {
 

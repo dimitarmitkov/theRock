@@ -1,5 +1,8 @@
 export const valuesLinks = {
     EditTask: "/threads/",
     StartTask:"/start",
-    ChangeUser:"/changeuser"
+    ChangeUser:"/changeuser",
+    Threads: "/threads",
+    Comments: "/comments",
+    Comment: "/comment",
 }

@@ -1,4 +1,4 @@
-const starThread = require("../m_api/startThread");
+const starThread = require("../serviceFactory/startThread");
 
 const createOneThread = async (ctx, next) => {
 

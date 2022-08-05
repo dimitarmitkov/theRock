@@ -1,4 +1,4 @@
-const getThreads = require("../m_api/getAllComments");
+const getThreads = require("../serviceFactory/getAllComments");
 
 const getAllComments = async (ctx, next) => {
 
